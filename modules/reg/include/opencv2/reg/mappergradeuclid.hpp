@@ -43,7 +43,7 @@
 namespace cv {
 namespace reg {
 
-/*
+/*!
  * Mapper for euclidean motion: rotation plus shift
  */
 class CV_EXPORTS MapperGradEuclid: public Mapper

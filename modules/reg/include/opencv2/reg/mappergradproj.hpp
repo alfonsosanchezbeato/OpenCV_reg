@@ -44,6 +44,9 @@ namespace cv {
 namespace reg {
 
 
+/*!
+ * Gradient mapper for a projective transformation
+ */
 class CV_EXPORTS MapperGradProj: public Mapper
 {
 public:

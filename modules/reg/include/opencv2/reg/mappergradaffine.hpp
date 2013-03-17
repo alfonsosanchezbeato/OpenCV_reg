@@ -44,6 +44,9 @@ namespace cv {
 namespace reg {
 
 
+/*!
+ * Mapper for affine motion
+ */
 class CV_EXPORTS MapperGradAffine: public Mapper
 {
 public:

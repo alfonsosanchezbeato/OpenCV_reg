@@ -45,7 +45,7 @@ namespace reg {
 
 
 /*!
- * Calculates a similarity transformation between to images
+ * Calculates a similarity transformation between to images (scale, rotation, and shift)
  */
 class CV_EXPORTS MapperGradSimilar: public Mapper
 {

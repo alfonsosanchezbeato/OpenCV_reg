@@ -44,6 +44,9 @@ namespace cv {
 namespace reg {
 
 
+/*!
+ * Gradient mapper for a translation
+ */
 class CV_EXPORTS MapperGradShift: public Mapper
 {
 public:
