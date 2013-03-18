@@ -1,5 +1,40 @@
-// get_frame.cpp: define el punto de entrada de la aplicación de consola.
+/*M///////////////////////////////////////////////////////////////////////////////////////
 //
+//  IMPORTANT: READ BEFORE DOWNLOADING, COPYING, INSTALLING OR USING.
+//
+//  By downloading, copying, installing or using the software you agree to this license.
+//  If you do not agree to this license, do not download, install,
+//  copy or use the software.
+//
+// Copyright (C) 2013, Alfonso Sanchez-Beato, all rights reserved.
+// Third party copyrights are property of their respective owners.
+//
+// Redistribution and use in source and binary forms, with or without modification,
+// are permitted provided that the following conditions are met:
+//
+//   * Redistribution's of source code must retain the above copyright notice,
+//     this list of conditions and the following disclaimer.
+//
+//   * Redistribution's in binary form must reproduce the above copyright notice,
+//     this list of conditions and the following disclaimer in the documentation
+//     and/or other materials provided with the distribution.
+//
+//   * The name of the copyright holders may not be used to endorse or promote products
+//     derived from this software without specific prior written permission.
+//
+// This software is provided by the copyright holders and contributors "as is" and
+// any express or implied warranties, including, but not limited to, the implied
+// warranties of merchantability and fitness for a particular purpose are disclaimed.
+// In no event shall the contributors be liable for any direct,
+// indirect, incidental, special, exemplary, or consequential damages
+// (including, but not limited to, procurement of substitute goods or services;
+// loss of use, data, or profits; or business interruption) however caused
+// and on any theory of liability, whether in contract, strict liability,
+// or tort (including negligence or otherwise) arising in any way out of
+// the use of this software, even if advised of the possibility of such damage.
+//
+//M*/
+
 #include "precomp.hpp"
 #include <iostream>
 #define _USE_MATH_DEFINES
@@ -347,20 +382,14 @@ void comparePixelVsFeature(const Mat& img1_8b, const Mat& img2_8b)
 }
 
 
-int main(int argc, char* argv[])
+int main(void)
 {
-    Mat img1;
-    
-    if(argc < 2) {
-        cout <<  "Usage: map_test <picture>" << endl;
-        return -1;
-    }
-    img1 = imread(argv[1], CV_LOAD_IMAGE_COLOR);
+    Mat img1;    
+    img1 = imread("home.png", CV_LOAD_IMAGE_COLOR);
     if(!img1.data) {
-        cout <<  "Could not open or find " << argv[1] << endl;
+        cout <<  "Could not open or find file" << endl;
         return -1;
     }
-
     // Convert to double, 3 channels
     img1.convertTo(img1, CV_64FC3);
 
@@ -371,7 +400,15 @@ int main(int argc, char* argv[])
     testProjective(img1);
 
     Mat imgcmp1 = imread("LR_05.png", CV_LOAD_IMAGE_COLOR);
+    if(!imgcmp1.data) {
+        cout <<  "Could not open or find file" << endl;
+        return -1;
+    }
     Mat imgcmp2 = imread("LR_06.png", CV_LOAD_IMAGE_COLOR);
+    if(!imgcmp2.data) {
+        cout <<  "Could not open or find file" << endl;
+        return -1;
+    }
     comparePixelVsFeature(imgcmp1, imgcmp2);
 
     return 0;

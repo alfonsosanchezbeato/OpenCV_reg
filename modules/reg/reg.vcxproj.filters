@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="include\opencv2">
+      <UniqueIdentifier>{b6d8d8a1-7e9c-41e7-8237-b33cdc578547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\opencv2\reg">
+      <UniqueIdentifier>{5668d9ea-ef4a-4fb5-9c68-65224a87d872}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\opencv2\reg\map.hpp">
+      <Filter>include\opencv2\reg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\reg\mapaffine.hpp">
+      <Filter>include\opencv2\reg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\reg\mapper.hpp">
+      <Filter>include\opencv2\reg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\reg\mappergradaffine.hpp">
+      <Filter>include\opencv2\reg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\reg\mappergradshift.hpp">
+      <Filter>include\opencv2\reg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\reg\mapperpyramid.hpp">
+      <Filter>include\opencv2\reg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\reg\mapshift.hpp">
+      <Filter>include\opencv2\reg</Filter>
+    </ClInclude>
+    <ClInclude Include="precomp.hpp" />
+    <ClInclude Include="include\opencv2\reg\mapprojec.hpp">
+      <Filter>include\opencv2\reg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\reg\mappergradproj.hpp">
+      <Filter>include\opencv2\reg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\reg\mappergradeuclid.hpp">
+      <Filter>include\opencv2\reg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\reg\mappergradsimilar.hpp">
+      <Filter>include\opencv2\reg</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\map.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mapaffine.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mapper.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mappergradaffine.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mappergradshift.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mapperpyramid.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mapshift.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\maprojec.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mappergradproj.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mappergradeuclid.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mappergradsimilar.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="map_test.cpp" />
+  </ItemGroup>
+</Project>

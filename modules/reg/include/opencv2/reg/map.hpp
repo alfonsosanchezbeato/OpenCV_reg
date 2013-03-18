@@ -66,7 +66,7 @@ public:
 
     /*!
      * Warps image to a new coordinate frame. The calculation is img2(x)=img1(T(x)), so in fact
-     * this is the inverse warping as we are takimg the value of img1 with the forward
+     * this is the inverse warping as we are taking the value of img1 with the forward
      * transformation of the points.
      * \param[in] img1 Original image
      * \param[out] img2 Warped image
@@ -88,7 +88,7 @@ public:
 
     /*!
      * Scales the map by a given factor as if the coordinates system is expanded/compressed
-     * by that factor. This could also be expressed as a composition.
+     * by that factor.
      * \param[in] factor Expansion if bigger than one, compression if smaller than one
      */
     virtual void scale(double factor) = 0;
