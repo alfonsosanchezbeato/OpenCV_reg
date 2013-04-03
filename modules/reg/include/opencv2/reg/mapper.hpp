@@ -78,6 +78,14 @@ protected:
                   cv::Mat& Ix, cv::Mat& Iy, cv::Mat& It) const;
 
     /*
+     * Fills matrices with pixel coordinates of an image
+     * \param[in] img Image
+     * \param[out] grid_r Row (y-coordinate)
+     * \param[out] grid_c Column (x-coordinate)
+     */
+    void grid(const Mat& img, Mat& grid_r, Mat& grid_c) const;
+
+    /*
      * Per-element square of a matrix
      * \param[in] mat1 Input matrix
      * \return mat1[i,j]^2

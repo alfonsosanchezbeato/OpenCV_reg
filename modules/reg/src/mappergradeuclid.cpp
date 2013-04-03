@@ -63,6 +63,8 @@ void MapperGradEuclid::calculate(
     Mat img2;
 
     CV_DbgAssert(img1.size() == image2.size());
+    CV_DbgAssert(img1.channels() == image2.channels());
+    CV_DbgAssert(img1.channels() == 1 || img1.channels() == 3);
 
     if(!res.empty()) {
         // We have initial values for the registration: we move img2 to that initial reference
@@ -73,15 +75,7 @@ void MapperGradEuclid::calculate(
 
     // Matrices with reference frame coordinates
     Mat grid_r, grid_c;
-    Vec3d ones(1., 1., 1.);
-    grid_r.create(img1.size(), CV_64FC3);
-    grid_c.create(img1.size(), CV_64FC3);
-    for(int r_i = 0; r_i < img1.rows; ++r_i) {
-        for(int c_i = 0; c_i < img1.cols; ++c_i) {
-            grid_r.at<Vec3d>(r_i, c_i) = r_i*ones;
-            grid_c.at<Vec3d>(r_i, c_i) = c_i*ones;
-        }
-    }
+    grid(img1, grid_r, grid_c);
 
     // Get gradient in all channels
     gradient(img1, img2, gradx, grady, imgDiff);

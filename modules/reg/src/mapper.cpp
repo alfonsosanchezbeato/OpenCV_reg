@@ -58,5 +58,29 @@ void Mapper::gradient(const Mat& img1, const Mat& img2, Mat& Ix, Mat& Iy, Mat& I
     It = img2 - img1;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+void Mapper::grid(const Mat& img, Mat& grid_r, Mat& grid_c) const
+{
+    // Matrices with reference frame coordinates
+    grid_r.create(img.size(), img.type());
+    grid_c.create(img.size(), img.type());
+    if(img.channels() == 1) {
+        for(int r_i = 0; r_i < img.rows; ++r_i) {
+            for(int c_i = 0; c_i < img.cols; ++c_i) {
+                grid_r.at<double>(r_i, c_i) = r_i;
+                grid_c.at<double>(r_i, c_i) = c_i;
+            }
+        }
+    } else {
+        Vec3d ones(1., 1., 1.);
+        for(int r_i = 0; r_i < img.rows; ++r_i) {
+            for(int c_i = 0; c_i < img.cols; ++c_i) {
+                grid_r.at<Vec3d>(r_i, c_i) = r_i*ones;
+                grid_c.at<Vec3d>(r_i, c_i) = c_i*ones;
+            }
+        }
+    }
+}
+
 
 }}  // namespace cv::reg

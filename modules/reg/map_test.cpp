@@ -69,8 +69,10 @@ void showDifference(const Mat& image1, const Mat& image2, const char* title)
     Mat img1, img2;
     image1.convertTo(img1, CV_32FC3);
     image2.convertTo(img2, CV_32FC3);
-    cvtColor(img1, img1, CV_RGB2GRAY);
-    cvtColor(img2, img2, CV_RGB2GRAY);
+    if(img1.channels() != 1)
+        cvtColor(img1, img1, CV_RGB2GRAY);
+    if(img2.channels() != 1)
+        cvtColor(img2, img2, CV_RGB2GRAY);
 
     Mat imgDiff;
     img1.copyTo(imgDiff);
@@ -271,8 +273,14 @@ void calcHomographyFeature(const Mat& image1, const Mat& image2)
     Mat gray_image1;
     Mat gray_image2;
     // Convert to Grayscale
-    cvtColor(image1, gray_image1, CV_RGB2GRAY);
-    cvtColor(image2, gray_image2, CV_RGB2GRAY);
+    if(image1.channels() != 1)
+        cvtColor(image1, gray_image1, CV_RGB2GRAY);
+    else
+        image1.copyTo(gray_image1);
+    if(image2.channels() != 1)
+        cvtColor(image2, gray_image2, CV_RGB2GRAY);
+    else
+        image2.copyTo(gray_image2);
 
     //-- Step 1: Detect the keypoints using SURF Detector
     int minHessian = 400;
@@ -385,7 +393,7 @@ void comparePixelVsFeature(const Mat& img1_8b, const Mat& img2_8b)
 int main(void)
 {
     Mat img1;    
-    img1 = imread("home.png", CV_LOAD_IMAGE_COLOR);
+    img1 = imread("home.png", CV_LOAD_IMAGE_UNCHANGED);
     if(!img1.data) {
         cout <<  "Could not open or find file" << endl;
         return -1;
@@ -399,12 +407,13 @@ int main(void)
     testAffine(img1);
     testProjective(img1);
 
-    Mat imgcmp1 = imread("LR_05.png", CV_LOAD_IMAGE_COLOR);
+    Mat imgcmp1 = imread("LR_05.png", CV_LOAD_IMAGE_UNCHANGED);
     if(!imgcmp1.data) {
         cout <<  "Could not open or find file" << endl;
         return -1;
     }
-    Mat imgcmp2 = imread("LR_06.png", CV_LOAD_IMAGE_COLOR);
+
+    Mat imgcmp2 = imread("LR_06.png", CV_LOAD_IMAGE_UNCHANGED);
     if(!imgcmp2.data) {
         cout <<  "Could not open or find file" << endl;
         return -1;
