@@ -11,17 +11,17 @@ feature-based registration.  The implementation follows essentially the
 corresponding part of the paper "Image Alignment and Stitching: A Tutorial",
 from Richard Szeliski.
 
-As far as I know, these methods have not been implemented publicly previously
-in the OpenCV framework. Currently, the registration methods that can be found
-are either template matching or feature based.
+As far as I know, these methods have not been implemented publicly previously in
+the OpenCV framework. Currently, the registration methods that can be found are
+either template matching or feature based.
 
 Feature based methods have some advantages over pixel based methods when we are
 trying to register pictures that have been shoot under different lighting
 conditions or exposition times, or when the images overlap only partially. On
 the other hand, the main advantage of pixel-based methods when compared to
 feature based methods is their better precision for some pictures (those shoot
-under similar lighting conditions and that have a significative overlap), due
-to the fact that we are using all the information available in the image, which
+under similar lighting conditions and that have a significative overlap), due to
+the fact that we are using all the information available in the image, which
 allows us to achieve subpixel accuracy. This is particularly important for
 certain applications like multi-frame denoising or super-resolution.
 
@@ -59,8 +59,8 @@ is stored in a MapAffine object for convenience.
 * MapperGradAffine: Gradient based alignment for an affine motion model. The
 number of parameters is six and the result is stored in a MapAffine object. 
 * MapperGradProj: Gradient based alignment for calculating projective
-transformations. The number of parameters is eight and the result is stored in
-a MapProject object.
+transformations. The number of parameters is eight and the result is stored in a
+MapProject object.
 * MapperPyramid: It implements hyerarchical motion estimation using a Gaussian
 pyramid. Its constructor accepts as argument any other object that implements
 the Mapper interface, and it is that mapper the one called by MapperPyramid for
@@ -83,15 +83,26 @@ beyond what we need will decrease the accuracy: it is better to use the least
 number of degrees of freedom that we can.
 
 In the file map_test.cpp some examples on how to use this module can be seen.
-There is a test function for each MapperGrad*. A motion is simulated on an
-input image and then we register the moved image using a MapperPyramid created
-with the right MapperGrad*. The difference images of the pictures before and
-after registering are displayed, and the ground truth parameters and the
-calculated ones are printed. Additionally, two images from a real video are
-registered using first SURF features and then MapperGradProj+MapperPyramid. The
-difference between the images and the difference of the registered images using
-the two methods are displayed. It can be seen in the differences shown that
-using a pixel based difference we can achieve more accuracy.
+There is a test function for each MapperGrad*. A motion is simulated on an input
+image and then we register the moved image using a MapperPyramid created with
+the right MapperGrad*. The difference images of the pictures before and after
+registering are displayed, and the ground truth parameters and the calculated
+ones are printed. Additionally, two images from a real video are registered
+using first SURF features and then MapperGradProj+MapperPyramid. The difference
+between the images and the difference of the registered images using the two
+methods are displayed. It can be seen in the differences shown that using a
+pixel based difference we can achieve more accuracy.
+
+To test the module you must have OpenCV and cmake installed. You must set the
+environment variable OpenCV_DIR to the directory where OpenCV is installed
+(where OpenCVConfig.cmake is found) and then execute
+
+C:\path\to\reg> cmake .
+
+in the folder where the module is located to generate the solution/Makefile
+file. After that, you can compile the map_test executable. To run it you must
+make sure that the OS can find the OpenCV libraries, adding its location to
+either PATH (Windows) or LD_LIBRARY_PATH (Linux) environment variables.
 
 As a final note, this is an initial release: all operations are made using
 double floating point numbers and no big effort has been made to optimize the

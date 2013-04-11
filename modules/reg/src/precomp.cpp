@@ -35,42 +35,5 @@
 //
 //M*/
 
-#ifndef MAPPERPYRAMID_H_
-#define MAPPERPYRAMID_H_
 
-#include "mapper.hpp"
-
-
-namespace cv {
-namespace reg {
-
-
-/*!
- * Calculates a map using a gaussian pyramid
- */
-class CV_EXPORTS MapperPyramid: public Mapper
-{
-public:
-    /*
-     * Constructor
-     * \param[in] baseMapper Base mapper used for the refinements
-     */
-    MapperPyramid(const Mapper& baseMapper);
-
-    void calculate(const cv::Mat& img1, const cv::Mat& img2, cv::Ptr<Map>& res) const;
-
-    cv::Ptr<Map> getMap(void) const;
-
-    unsigned numLev_;           /*!< Number of levels of the pyramid */
-    unsigned numIterPerScale_;  /*!< Number of iterations at a given scale of the pyramid */
-
-private:
-    MapperPyramid& operator=(const MapperPyramid&);
-    const Mapper& baseMapper_;  /*!< Mapper used in inner level */
-};
-
-
-
-}}  // namespace cv::reg
-
-#endif  // MAPPERPYRAMID_H_
+#include "precomp.hpp"

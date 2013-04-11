@@ -90,7 +90,7 @@ void MapProjec::inverseWarp(const Mat& img1, Mat& img2) const
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 void MapProjec::inverseMap(Ptr<Map>& invMap) const
 {
-    Matx<double, 3, 3>& invProjTr = projTr_.inv(DECOMP_LU);
+    Matx<double, 3, 3> invProjTr = projTr_.inv(DECOMP_LU);
     invMap = new MapProjec(invProjTr);
 }
 

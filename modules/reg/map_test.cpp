@@ -35,7 +35,7 @@
 //
 //M*/
 
-#include "precomp.hpp"
+#include "src/precomp.hpp"
 #include <iostream>
 #define _USE_MATH_DEFINES
 #include <cmath>
