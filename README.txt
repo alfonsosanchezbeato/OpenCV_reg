@@ -1,3 +1,7 @@
+NOTE: THIS MODULE CAN BE FOUND NOW IN THE OFFICIAL opencv_contrib REPOSITORY
+(https://github.com/Itseez/opencv_contrib/tree/master/modules/reg)
+
+
 OpenCV pixel-intensity based registration module
 ------------------------------------------------
 
